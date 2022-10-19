@@ -41,16 +41,10 @@ class YogaDynamicPayloadActivity : AppCompatActivity() {
             renderable,
             YogaLayout.LayoutParams(
                 ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
+                    ViewGroup.LayoutParams.WRAP_CONTENT, // 1000,
+                    ViewGroup.LayoutParams.WRAP_CONTENT // 1000,
                 )
             )
-//            YogaLayout.LayoutParams(
-//                ViewGroup.LayoutParams(
-//                    1000,
-//                    1000
-//                )
-//            )
         )
         // Problems:
         // - Parent layout parameters conflict with given "width" and "height". See how SAMPLE_FLEX is rendered full screen instead of using 900 and 600
