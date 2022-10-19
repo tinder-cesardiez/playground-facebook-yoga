@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.cesards.android.playground.HomeActivity">
+
+    <Button
+        android:id="@+id/button_1"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Yoga XML and programmatically" />
+
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Yoga from JSON (dynamic)" />
+
+    <Button
+        android:id="@+id/button_3"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="Yoga with view binding" />
+
+</LinearLayout>

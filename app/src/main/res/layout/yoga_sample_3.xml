@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<com.facebook.yoga.android.YogaLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yoga="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    yoga:yg_alignItems="center"
+    yoga:yg_flexDirection="row"
+    yoga:yg_justifyContent="center">
+
+    <com.facebook.yoga.android.VirtualYogaLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/yoga_blue"
+        yoga:yg_marginLeft="10dp" />
+
+    <com.facebook.yoga.android.VirtualYogaLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        yoga:yg_flex="1"
+        yoga:yg_flexDirection="column">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/yoga_grey"
+            yoga:yg_marginLeft="10dp" />
+
+        <com.facebook.yoga.android.VirtualYogaLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            yoga:yg_flex="1"
+            yoga:yg_flexDirection="row">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/yoga_grey"
+                yoga:yg_marginLeft="10dp" />
+
+            <com.facebook.yoga.android.VirtualYogaLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                yoga:yg_flex="1"
+                yoga:yg_flexDirection="row">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/yoga_blue"
+                    yoga:yg_marginLeft="10dp" />
+
+                <com.facebook.yoga.android.VirtualYogaLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    yoga:yg_flex="1"
+                    yoga:yg_flexDirection="row">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/yoga_grey"
+                        yoga:yg_marginLeft="10dp" />
+
+                    <com.facebook.yoga.android.VirtualYogaLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        yoga:yg_flex="1"
+                        yoga:yg_flexDirection="row">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/yoga_grey"
+                            yoga:yg_marginLeft="10dp" />
+
+                        <com.facebook.yoga.android.VirtualYogaLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            yoga:yg_flex="1"
+                            yoga:yg_flexDirection="column">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/yoga_blue"
+                                yoga:yg_marginLeft="10dp" />
+
+                            <com.facebook.yoga.android.VirtualYogaLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                yoga:yg_flex="1"
+                                yoga:yg_flexDirection="row">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/yoga_grey"
+                                    yoga:yg_marginLeft="10dp" />
+
+                                <com.facebook.yoga.android.VirtualYogaLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    yoga:yg_flex="1"
+                                    yoga:yg_flexDirection="row">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@color/yoga_grey"
+                                        yoga:yg_marginLeft="10dp" />
+
+                                    <com.facebook.yoga.android.VirtualYogaLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        yoga:yg_flex="1"
+                                        yoga:yg_flexDirection="row">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:background="@color/yoga_blue"
+                                            yoga:yg_marginLeft="10dp" />
+
+                                        <com.facebook.yoga.android.VirtualYogaLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            yoga:yg_flex="1"
+                                            yoga:yg_flexDirection="row">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@color/yoga_grey"
+                                                yoga:yg_marginLeft="10dp" />
+
+                                            <com.facebook.yoga.android.VirtualYogaLayout
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                yoga:yg_flex="1"
+                                                yoga:yg_flexDirection="column">
+
+                                                <TextView
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:background="@color/yoga_grey"
+                                                    yoga:yg_marginLeft="10dp" />
+
+                                                <com.facebook.yoga.android.VirtualYogaLayout
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    yoga:yg_flex="1"
+                                                    yoga:yg_flexDirection="row">
+
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:background="@color/yoga_blue"
+                                                        yoga:yg_marginLeft="10dp" />
+
+                                                    <com.facebook.yoga.android.VirtualYogaLayout
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        yoga:yg_flex="1"
+                                                        yoga:yg_flexDirection="row">
+
+                                                        <TextView
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:background="@color/yoga_grey"
+                                                            yoga:yg_marginLeft="10dp" />
+
+                                                        <com.facebook.yoga.android.VirtualYogaLayout
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            yoga:yg_flex="1"
+                                                            yoga:yg_flexDirection="row">
+
+                                                            <TextView
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                android:background="@color/yoga_grey"
+                                                                yoga:yg_marginLeft="10dp" />
+
+                                                            <com.facebook.yoga.android.VirtualYogaLayout
+                                                                android:layout_width="wrap_content"
+                                                                android:layout_height="wrap_content"
+                                                                yoga:yg_flex="1"
+                                                                yoga:yg_flexDirection="row"/>
+                                                        </com.facebook.yoga.android.VirtualYogaLayout>
+                                                    </com.facebook.yoga.android.VirtualYogaLayout>
+                                                </com.facebook.yoga.android.VirtualYogaLayout>
+                                            </com.facebook.yoga.android.VirtualYogaLayout>
+                                        </com.facebook.yoga.android.VirtualYogaLayout>
+                                    </com.facebook.yoga.android.VirtualYogaLayout>
+                                </com.facebook.yoga.android.VirtualYogaLayout>
+                            </com.facebook.yoga.android.VirtualYogaLayout>
+                        </com.facebook.yoga.android.VirtualYogaLayout>
+                    </com.facebook.yoga.android.VirtualYogaLayout>
+                </com.facebook.yoga.android.VirtualYogaLayout>
+            </com.facebook.yoga.android.VirtualYogaLayout>
+        </com.facebook.yoga.android.VirtualYogaLayout>
+    </com.facebook.yoga.android.VirtualYogaLayout>
+</com.facebook.yoga.android.YogaLayout>

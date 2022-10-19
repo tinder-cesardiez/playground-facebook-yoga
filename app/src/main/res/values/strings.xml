@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">SDUI Playground</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+    <string name="child_1_text" description="Placeholder text for the first element in the layout" tools:ignore="ExtraTranslation">Hello.  I am Yoga!</string>
+    <string name="child_2_text" description="Placeholder text for the second element in the layout" tools:ignore="ExtraTranslation">I am a layout engine!</string>
+    <string name="child_3_text" description="Placeholder text for the third element in the layout" tools:ignore="ExtraTranslation">I run natively.</string>
+    <string name="child_4_text" description="Placeholder text for the fourth element in the layout" tools:ignore="ExtraTranslation">So I\'m fast.</string>
+    <string name="child_5_text" description="Placeholder text for the fifth element in the layout" tools:ignore="ExtraTranslation">Who are you?</string>
+</resources>
