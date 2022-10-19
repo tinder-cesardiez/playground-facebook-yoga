@@ -4,10 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.cesards.android.playground.CONTROLLA_SAMPLE_STRUCT
-import com.cesards.android.playground.POSITION
-import com.cesards.android.playground.SAMPLE_COMPLEX_1
-import com.cesards.android.playground.SAMPLE_FLEX
+import com.cesards.android.playground.*
 import com.cesards.android.playground.facebook.yoga.adapter.AdaptToNode
 import com.cesards.android.playground.facebook.yoga.adapter.AdaptToYogaLayout
 import com.cesards.android.playground.sdui.model.Template
@@ -34,15 +31,15 @@ class YogaDynamicPayloadActivity : AppCompatActivity() {
 
         val response = Json {
             ignoreUnknownKeys = true
-        }.decodeFromString<Template>(SAMPLE_COMPLEX_1)
+        }.decodeFromString<Template>(POSITION("absolute"))
 
         val renderable = AdaptToYogaLayout(AdaptToNode())(this, response)
         setContentView(
             renderable,
             YogaLayout.LayoutParams(
                 ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT, // 1000,
-                    ViewGroup.LayoutParams.WRAP_CONTENT // 1000,
+                    ViewGroup.LayoutParams.MATCH_PARENT, // 1000,
+                    ViewGroup.LayoutParams.MATCH_PARENT // 1000,
                 )
             )
         )

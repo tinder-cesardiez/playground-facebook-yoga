@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YogaLayouts"
         tools:targetApi="31">
-
+        <activity
+            android:name=".google.flexbox.GoogleFlexboxActivity"
+            android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="true">
@@ -22,11 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".facebook.yoga.YogaInitialTestActivity"
             android:exported="false" />
-
         <activity
             android:name=".facebook.yoga.YogaDynamicPayloadActivity"
             android:exported="false" />
