@@ -1,7 +1,6 @@
 package com.cesards.android.playground
 
 import android.graphics.Color
-import android.view.View
 
 // **********************************************************
 // ********* FLEXBOX SIMPLE ATTRIBUTE SETUP TESTING *********
@@ -431,7 +430,7 @@ val CONTROLLA_SAMPLE_STRUCT = """
                         },
                         "data" : {
                             "color": {
-                                "solid": "#cacaca"
+                                "solid": "#FFFFFF"
                             },
                             "border": {
                                 "radius": 20
@@ -453,17 +452,19 @@ val CONTROLLA_SAMPLE_STRUCT = """
                                 "data" : {
                                     "text": {
                                         "body": "Curated Just for you",
-                                        "font_size": 16
-                                    },
-                                    "color": {
-                                        "solid": "#8756ac"
+                                        "font_size": 16,
+                                        "color": {
+                                            "solid": "#000000"
+                                        }
                                     }
                                 }
                             },
                             {
                                 "type": "CarouselBars",
                                 "layout": {
-                                    "padding": 20
+                                    "padding": 20,
+                                    "width": 100,
+                                    "height": 60
                                 },
                                 "data" : {
                                     "count": 4,
@@ -477,8 +478,8 @@ val CONTROLLA_SAMPLE_STRUCT = """
                     {
                         "type": "Image",
                         "layout": {
-                            "width": 400,
-                            "height": 200,
+                            "width": 187,
+                            "height": 37,
                             "padding": 10
                         },
                         "data" : {
@@ -495,11 +496,11 @@ val CONTROLLA_SAMPLE_STRUCT = """
                         "type": "Text",
                         "layout": {
                             "flex_grow": 1,
-                            "font_size": 20,
                             "margin": 20
                         },
                         "data" : {
                             "text" : {
+                                "font_size": 20,
                                 "body": "✓ Unlimited Right Swipes\n✓ Unlimited Likes\n✓ Unlimited Rewinds... and more!",
                                 "color": {
                                     "solid": "#000000"

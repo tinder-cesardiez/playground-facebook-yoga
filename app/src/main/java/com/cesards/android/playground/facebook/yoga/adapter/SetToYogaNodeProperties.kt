@@ -1,7 +1,10 @@
 package com.cesards.android.playground.facebook.yoga.adapter
 
 import android.content.Context
-import android.util.DisplayMetrics
+import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaAlign
+import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaFlexDirection
+import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaJustifyContent
+import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaPositionType
 import com.cesards.android.playground.sdui.model.Layout
 import com.facebook.yoga.YogaEdge
 import com.facebook.yoga.YogaNode
@@ -14,7 +17,7 @@ internal class SetToYogaNodeProperties(
     private val adaptToYogaAlign: AdaptToYogaAlign,
 ) {
 
-    operator fun invoke(context: Context, yogaNode: YogaNode, layout: Layout) {
+    operator fun invoke(context: Context, yogaNode: YogaNode, layout: Layout, hack: Boolean = false) {
         layout.width?.run {
             yogaNode.setWidth(toPixels(context))
         }
@@ -48,6 +51,7 @@ internal class SetToYogaNodeProperties(
         layout.margin?.run {
             yogaNode.setMargin(YogaEdge.ALL, toPixels(context))
         }
+        // Padding applied to a node on a view like TextView won't work, so we need to specify the padding directly to the View.
         layout.padding?.run {
             yogaNode.setPadding(YogaEdge.ALL, toPixels(context))
         }
@@ -57,9 +61,5 @@ internal class SetToYogaNodeProperties(
         layout.alignSelf?.run {
             yogaNode.alignSelf = adaptToYogaAlign(this)
         }
-    }
-
-    private fun Float.toPixels(context: Context): Float {
-        return this * (context.resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
     }
 }

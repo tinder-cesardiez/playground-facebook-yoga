@@ -1,4 +1,4 @@
-package com.cesards.android.playground.facebook.yoga.adapter
+package com.cesards.android.playground.facebook.yoga.adapter.layout
 
 import com.facebook.yoga.YogaPositionType
 

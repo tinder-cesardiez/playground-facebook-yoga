@@ -1,11 +1,12 @@
-package com.cesards.android.playground
+package com.cesards.android.playground.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.cesards.android.playground.facebook.yoga.YogaInitialTestActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.cesards.android.playground.R
 import com.cesards.android.playground.facebook.yoga.YogaDynamicPayloadActivity
+import com.cesards.android.playground.facebook.yoga.YogaInitialTestActivity
 import com.cesards.android.playground.google.flexbox.GoogleFlexboxActivity
 
 class HomeActivity : AppCompatActivity() {
