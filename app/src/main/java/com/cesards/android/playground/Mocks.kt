@@ -1,362 +1,9 @@
 package com.cesards.android.playground
 
-import android.graphics.Color
-
-// **********************************************************
-// ********* FLEXBOX SIMPLE ATTRIBUTE SETUP TESTING *********
-// **********************************************************
-
-// https://reactnative.dev/docs/flexbox#flex
-// Observations:
-// - Flex (flex_grow) behavior works as expected.
-val SAMPLE_FLEX = """
-        {
-            "id" : "template_2",
-            "value" : {
-                "type": "Box",
-                "layout": {
-                    "flex_direction" : "column",
-                    "width": 900,
-                    "height": 900,
-                    "padding" : 20
-                },
-                "children": [
-                    {
-                        "type": "Box",
-                        "layout": {
-                            "flex_grow" : 1
-                        },
-                        "data" : {
-                            "color": {
-                                "solid": "#880808"
-                            }
-                        }
-                    },
-                    {
-                        "type": "Box",
-                        "layout": {
-                            "flex_grow" : 2
-                        },
-                        "data" : {
-                            "color": {
-                                "solid": "#ff8c00"
-                            }
-                        }
-                    },
-                    {
-                        "type": "Box",
-                        "layout": {
-                            "flex_grow" : 3
-                        },
-                        "data" : {
-                            "color": {
-                                "solid": "#00FF00"
-                            }
-                        }
-                    }
-                ]
-            }
-        }
-        """
-
-// https://reactnative.dev/docs/flexbox#flex-direction
-// Observations:
-// - "column" direction works as expected.
-// - "row" direction works as expected.
-// - "column-reverse" direction works as expected.
-// - "row-reverse" direction works as expected.
-fun FLEX_DIRECTION(direction: String) :String {
-    if (direction != "row" && direction != "row-reverse" && direction != "column" && direction != "column-reverse") {
-        error("Direction type not supported.")
-    }
-
-    return """
-        {
-            "id" : "template_2",
-            "value" : {
-                "type": "Box",
-                "layout": {
-                    "flex_direction" : "$direction",
-                    "width": 900,
-                    "height": 900,
-                    "padding" : 20
-                },
-                "data" : {
-                    "color": {
-                        "solid": "#F0F8FF"
-                    }
-                },
-                "children": [
-                    {
-                        "type": "Box",
-                        "layout": {
-                            "width": 100,
-                            "height": 100
-                        },
-                        "data" : {
-                            "color": {
-                                "solid": "#B0E0E6"
-                            }
-                        }
-                    },
-                    {
-                        "type": "Box",
-                        "layout": {
-                            "width": 100,
-                            "height": 100
-                        },
-                        "data" : {
-                            "color": {
-                                "solid": "#87CEEB"
-                            }
-                        }
-                    },
-                    {
-                        "type": "Box",
-                        "layout": {
-                            "width": 100,
-                            "height": 100
-                        },
-                        "data" : {
-                            "color": {
-                                "solid": "#4682B4"
-                            }
-                        }
-                    }
-                ]
-            }
-        }
-        """
-}
-
-// https://reactnative.dev/docs/flexbox#layout-direction
-// Skipped
-
-// https://reactnative.dev/docs/flexbox#justify-content
-// Skipped
-
-// https://reactnative.dev/docs/flexbox#absolute--relative-layout
-// Observations:
-// - "absolute" position works as expected.
-// - "relative" position works as expected.
-fun POSITION(position: String) :String {
-    if (position != "relative" && position != "absolute") {
-        error("Direction type not supported.")
-    }
-
-    return """
-        {
-            "id" : "template_2",
-            "value" : {
-                "type": "Box",
-                "layout": {
-                    "padding" : 20
-                },
-                "data" : {
-                    "color": {
-                        "solid": "#F0F8FF"
-                    }
-                },
-                "children": [
-                    {
-                        "type": "Box",
-                        "layout": {
-                            "position": "$position",
-                            "width": 150,
-                            "height": 150,
-                            "top": 25,
-                            "left": 25
-                        },
-                        "data" : {
-                            "color": {
-                                "solid": "#B0E0E6"
-                            }
-                        }
-                    },
-                    {
-                        "type": "Box",
-                        "layout": {
-                            "position": "$position",
-                            "width": 150,
-                            "height": 150,
-                            "top": 50,
-                            "left": 50
-                        },
-                        "data" : {
-                            "color": {
-                                "solid": "#87CEEB"
-                            }
-                        }
-                    },
-                    {
-                        "type": "Box",
-                        "layout": {
-                            "position": "$position",
-                            "width": 150,
-                            "height": 150,
-                            "top": 75,
-                            "left": 75
-                        },
-                        "data" : {
-                            "color": {
-                                "solid": "#4682B4"
-                            }
-                        }
-                    }
-                ]
-            }
-        }
-        """
-}
 
 // *********************************************
 // ********* COMPLEX STRUCTURE TESTING *********
 // *********************************************
-
-// Sample 1 from https://yogalayout.com/
-// Image path: /extra/sample-complex-1.png
-// export default class MyLayout extends Component {
-//     render() {
-//         return (
-//         <View style={{
-//             flex: 1,
-//             width: 500,
-//             height: 500,
-//             alignItems: 'flex-start',
-//             padding: 20,
-//             }}>
-//                 <View style={{
-//                     flex: 1,
-//                     width: 100,
-//                     height: 100,
-//             }} />
-//                 <View style={{
-//                     flex: 1,
-//                     width: 200,
-//                     height: 200,
-//                     justifyContent: 'space-between',
-//                     alignItems: 'flex-end',
-//                     alignSelf: 'flex-end',
-//                     marginHorizontal: 20,
-//                     flexGrow: 1,
-//                    }}>
-//                        <View style={{
-//                            flex: 1,
-//                            width: 100,
-//                            height: 100,
-//                           }} />
-//                        <View style={{
-//                            flex: 1,
-//                            width: 100,
-//                            height: 100,
-//                    }} />
-//                        </View>
-//                  <View style={{
-//                      flex: 1,
-//                      width: 100,
-//                      height: 100,
-//            }} />
-//                </View>
-//                );
-//     }
-// };
-val SAMPLE_COMPLEX_1 : String = """
-        {
-            "id": "template_2",
-            "value": {
-                "type": "Box",
-                "layout": {
-                    "flex_direction": "row",
-                    "align_items": "flex-start",
-                    "padding": 20,
-                    "width": 600,
-                    "height": 600
-                },
-                "data": {
-                    "color": {
-                        "solid": "#F0F8FF"
-                    }
-                },
-                "children": [{
-                        "type": "Text",
-                        "layout": {
-                            "width": 100,
-                            "height": 100
-                        },
-                        "data": {
-                            "color": {
-                                "solid": "#87CEEB"
-                            }
-                        }
-                    },
-                    {
-                        "type": "Box",
-                        "layout": {
-                            "justify_content": "space-between",
-                            "align_items": "flex-end",
-                            "align_self": "flex-end",
-                            "flex_direction": "row",
-                            "margin": 20,
-                            "width": 300,
-                            "height": 300
-                        },
-                        "data": {
-                            "color": {
-                                "solid": "#B0E0E6"
-                            }
-                        },
-                        "children": [{
-                                "type": "Text",
-                                "layout": {
-                                    "width": 100,
-                                    "height": 100
-                                },
-                                "data": {
-                                    "color": {
-                                        "solid": "#cdba4a"
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Text",
-                                "layout": {
-                                    "width": 100,
-                                    "height": 100
-                                },
-                                "data": {
-                                    "color": {
-                                        "solid": "#87a4c3"
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "type": "Text",
-                        "layout": {
-                            "width": 100,
-                            "height": 100
-                        },
-                        "data": {
-                            "color": {
-                                "solid": "#4682B4"
-                            }
-                        }
-                    }
-                ]
-            }
-        }
-        """
-
-
-
-
-
-
-
-
-
-
 
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/flex
@@ -403,6 +50,10 @@ val SAMPLE_1_STRUCT = """
 //       "height": 100,
 //       "margin": 20
 //   }
+
+
+
+
 
 
 // layout, display
@@ -462,9 +113,9 @@ val CONTROLLA_SAMPLE_STRUCT = """
                             {
                                 "type": "CarouselBars",
                                 "layout": {
-                                    "padding": 20,
+                                    "padding": 6,
                                     "width": 100,
-                                    "height": 60
+                                    "height": 20
                                 },
                                 "data" : {
                                     "count": 4,
@@ -500,7 +151,7 @@ val CONTROLLA_SAMPLE_STRUCT = """
                         },
                         "data" : {
                             "text" : {
-                                "font_size": 20,
+                                "font_size": 16,
                                 "body": "✓ Unlimited Right Swipes\n✓ Unlimited Likes\n✓ Unlimited Rewinds... and more!",
                                 "color": {
                                     "solid": "#000000"
@@ -516,6 +167,11 @@ val CONTROLLA_SAMPLE_STRUCT = """
                             "justify_items": "stretch",
                             "margin": 10
                         },
+                         "data" : {
+                            "color": {
+                                "solid": "#CAD123"
+                            }
+                        },
                         "children": [
                             {
                                 "type": "Text",
@@ -523,8 +179,6 @@ val CONTROLLA_SAMPLE_STRUCT = """
                                     "flex_grow": 1,
                                     "justify_content": "center",
                                     "align_items": "center",
-                                    "padding": 10,
-                                    "margin": 10,
                                     "white_space": "nowrap"
                                 },
                                 "data" : {
@@ -533,7 +187,7 @@ val CONTROLLA_SAMPLE_STRUCT = """
                                         "color": {
                                             "solid": "#ffffff"
                                         },
-                                        "font_size": 22,
+                                        "font_size": 16,
                                         "font_weight": "semibold"
                                     },
                                     "border": {
@@ -547,13 +201,9 @@ val CONTROLLA_SAMPLE_STRUCT = """
                             {
                                 "type": "Text",
                                 "layout": {
-                                    "width": 400,
-                                    "height": 100,
                                     "flex_grow": 1,
                                     "justify_content": "center",
                                     "align_items": "center",
-                                    "padding": 10,
-                                    "margin": 10,
                                     "white_space": "nowrap"
                                 },
                                 "data" : {
@@ -562,7 +212,7 @@ val CONTROLLA_SAMPLE_STRUCT = """
                                         "color": {
                                             "solid": "#000000"
                                         },
-                                        "font_size": 22,
+                                        "font_size": 16,
                                         "font_weight": "semibold"
                                     },
                                     "border": {
@@ -580,31 +230,3 @@ val CONTROLLA_SAMPLE_STRUCT = """
             }
         }
         """
-
-
-
-
-val COLORS = listOf(
-    Color.parseColor("#ff33b5e5"),
-    Color.parseColor("#33999999"),
-    Color.parseColor("#ff99cc00"),
-    Color.parseColor("#ff0099cc"),
-    Color.parseColor("#ff669900"),
-    Color.parseColor("#ffcc0000"),
-    Color.parseColor("#ffaa66cc"),
-    Color.parseColor("#ffffbb33"),
-    Color.parseColor("#ffff8800"),
-    Color.parseColor("#ff00ddff"),
-    Color.parseColor("#33CCCCCC"),
-    Color.parseColor("#ff222222"),
-    Color.parseColor("#39cccccc"),
-    Color.parseColor("#59f0f0f0"),
-    Color.parseColor("#ffe6e6e6"),
-    Color.parseColor("#dacccccc"),
-    Color.parseColor("#66666666"),
-    Color.parseColor("#b3cccccc"),
-    Color.parseColor("#2699cc00"),
-    Color.parseColor("#46c5c1ff"),
-    Color.parseColor("#4699cc00"),
-
-)

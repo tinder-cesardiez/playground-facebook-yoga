@@ -1,10 +1,9 @@
 package com.cesards.android.playground.google.flexbox
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.cesards.android.playground.POSITION
+import androidx.appcompat.app.AppCompatActivity
 import com.cesards.android.playground.R
-import com.cesards.android.playground.facebook.yoga.adapter.AdaptToWidgetTree
+import com.cesards.android.playground.data.POSITION
 import com.cesards.android.playground.sdui.model.Template
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
