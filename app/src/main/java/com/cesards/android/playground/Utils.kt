@@ -431,7 +431,7 @@ val CONTROLLA_SAMPLE_STRUCT = """
                         },
                         "data" : {
                             "color": {
-                                "solid": "#ffffff"
+                                "solid": "#cacaca"
                             },
                             "border": {
                                 "radius": 20
@@ -456,17 +456,17 @@ val CONTROLLA_SAMPLE_STRUCT = """
                                         "font_size": 16
                                     },
                                     "color": {
-                                        "solid": "#000000"
+                                        "solid": "#8756ac"
                                     }
                                 }
                             },
                             {
                                 "type": "CarouselBars",
                                 "layout": {
-                                    "count": 4,
                                     "padding": 20
                                 },
                                 "data" : {
+                                    "count": 4,
                                     "color": {
                                         "solid": "#aaaaaa"
                                     }
@@ -477,14 +477,17 @@ val CONTROLLA_SAMPLE_STRUCT = """
                     {
                         "type": "Image",
                         "layout": {
-                            "width": 159.9,
-                            "height": 48.6,
+                            "width": 400,
+                            "height": 200,
                             "padding": 10
                         },
                         "data" : {
                             "media": {
                                 "url": "/images/tinder_plus_logo.png",
                                 "mime_type": "image/png"
+                            },
+                            "color": {
+                                "solid": "#378cac"
                             }
                         }
                     },
@@ -543,6 +546,8 @@ val CONTROLLA_SAMPLE_STRUCT = """
                             {
                                 "type": "Text",
                                 "layout": {
+                                    "width": 400,
+                                    "height": 100,
                                     "flex_grow": 1,
                                     "justify_content": "center",
                                     "align_items": "center",
@@ -574,6 +579,9 @@ val CONTROLLA_SAMPLE_STRUCT = """
             }
         }
         """
+
+
+
 
 val COLORS = listOf(
     Color.parseColor("#ff33b5e5"),

@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.cesards.android.playground.*
-import com.cesards.android.playground.facebook.yoga.adapter.AdaptToNode
-import com.cesards.android.playground.facebook.yoga.adapter.AdaptToYogaLayout
+import com.cesards.android.playground.CONTROLLA_SAMPLE_STRUCT
+import com.cesards.android.playground.facebook.yoga.adapter.*
+import com.cesards.android.playground.facebook.yoga.adapter.AdaptToWidgetTree
+import com.cesards.android.playground.facebook.yoga.adapter.AdaptToYogaPositionType
+import com.cesards.android.playground.facebook.yoga.adapter.SetToYogaNodeProperties
 import com.cesards.android.playground.sdui.model.Template
 import com.facebook.yoga.YogaConfigFactory
-import com.facebook.yoga.YogaStyleInputs.POSITION
 import com.facebook.yoga.android.YogaLayout
 import com.facebook.yoga.android.YogaViewLayoutFactory
 import kotlinx.serialization.decodeFromString
@@ -31,11 +32,20 @@ class YogaDynamicPayloadActivity : AppCompatActivity() {
 
         val response = Json {
             ignoreUnknownKeys = true
-        }.decodeFromString<Template>(POSITION("absolute"))
+        }.decodeFromString<Template>(CONTROLLA_SAMPLE_STRUCT)
 
-        val renderable = AdaptToYogaLayout(AdaptToNode())(this, response)
+        val adaptToWidgetTree = AdaptToWidgetTree(
+            SetToYogaNodeProperties(
+                AdaptToYogaFlexDirection(),
+                AdaptToYogaPositionType(),
+                AdaptToYogaJustifyContent(),
+                AdaptToYogaAlign()
+            )
+        )
+        val render = requireNotNull(adaptToWidgetTree(response.value, this, null))
+
         setContentView(
-            renderable,
+            render,
             YogaLayout.LayoutParams(
                 ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, // 1000,
