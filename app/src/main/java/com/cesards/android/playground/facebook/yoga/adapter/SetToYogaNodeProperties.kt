@@ -1,11 +1,10 @@
 package com.cesards.android.playground.facebook.yoga.adapter
 
 import android.content.Context
-import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaAlign
-import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaFlexDirection
-import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaJustifyContent
-import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaPositionType
+import android.view.View
+import com.cesards.android.playground.facebook.yoga.adapter.layout.*
 import com.cesards.android.playground.sdui.model.Layout
+import com.cesards.android.playground.sdui.model.Spacing
 import com.facebook.yoga.YogaEdge
 import com.facebook.yoga.YogaNode
 
@@ -15,6 +14,7 @@ internal class SetToYogaNodeProperties(
     private val adaptToYogaPositionType: AdaptToYogaPositionType,
     private val adaptToYogaJustifyContent: AdaptToYogaJustifyContent,
     private val adaptToYogaAlign: AdaptToYogaAlign,
+    private val adaptToSpacing: AdaptToSpacing,
 ) {
 
     operator fun invoke(context: Context, yogaNode: YogaNode, layout: Layout, hack: Boolean = false) {
@@ -51,9 +51,19 @@ internal class SetToYogaNodeProperties(
         layout.margin?.run {
             yogaNode.setMargin(YogaEdge.ALL, toPixels(context))
         }
-        // Padding applied to a node on a view like TextView won't work, so we need to specify the padding directly to the View.
+        // Padding applied to a node on a View doesn't work, so we need to specify the padding directly to the View.
         layout.padding?.run {
-            yogaNode.setPadding(YogaEdge.ALL, toPixels(context))
+            adaptToSpacing(this).forEach {
+                when (it) {
+                    is Spacing.All -> yogaNode.setPadding(YogaEdge.ALL, it.value.toPixels(context))
+                    is Spacing.Bottom -> yogaNode.setPadding(YogaEdge.BOTTOM, it.value.toPixels(context))
+                    is Spacing.End -> yogaNode.setPadding(YogaEdge.END, it.value.toPixels(context))
+                    is Spacing.Horizontal -> yogaNode.setPadding(YogaEdge.HORIZONTAL, it.value.toPixels(context))
+                    is Spacing.Start -> yogaNode.setPadding(YogaEdge.START, it.value.toPixels(context))
+                    is Spacing.Top -> yogaNode.setPadding(YogaEdge.TOP, it.value.toPixels(context))
+                    is Spacing.Vertical -> yogaNode.setPadding(YogaEdge.VERTICAL, it.value.toPixels(context))
+                }
+            }
         }
         layout.alignItems?.run {
             yogaNode.alignItems = adaptToYogaAlign(this)
@@ -61,5 +71,37 @@ internal class SetToYogaNodeProperties(
         layout.alignSelf?.run {
             yogaNode.alignSelf = adaptToYogaAlign(this)
         }
+    }
+}
+
+fun View.handlePadding(spacings: List<Spacing>) {
+    spacings.forEach {
+        val pixels = it.value.toPixels(context).toInt()
+        var start = 0
+        var top = 0
+        var end = 0
+        var bottom = 0
+        when (it) {
+            is Spacing.All -> {
+                start += pixels
+                top += pixels
+                end += pixels
+                bottom += pixels
+            }
+            is Spacing.Bottom -> bottom += pixels
+            is Spacing.End -> end += pixels
+            is Spacing.Horizontal -> {
+                start += pixels
+                end += pixels
+            }
+            is Spacing.Start -> start += pixels
+            is Spacing.Top -> top += pixels
+            is Spacing.Vertical -> {
+                top += pixels
+                bottom += pixels
+            }
+        }
+
+        setPadding(start, top, end, bottom)
     }
 }

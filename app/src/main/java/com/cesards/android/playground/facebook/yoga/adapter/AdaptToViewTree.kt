@@ -9,7 +9,7 @@ import com.cesards.android.playground.facebook.yoga.adapter.ui.AdaptToTextView
 import com.cesards.android.playground.sdui.model.Node
 import com.facebook.yoga.android.YogaLayout
 
-internal class AdaptToWidgetTree(
+internal class AdaptToViewTree(
     private val setToYogaNodeProperties: SetToYogaNodeProperties,
     private val adaptToTextView : AdaptToTextView,
     private val adaptToContainerView: AdaptToContainerView,

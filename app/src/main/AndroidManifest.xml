@@ -31,7 +31,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".facebook.yoga.YogaDynamicPayloadActivity"
+            android:name=".facebook.yoga.YogaActivity"
             android:exported="false" />
     </application>
 

@@ -1,6 +1,5 @@
 package com.cesards.android.playground.sdui.model
 
-import com.facebook.yoga.YogaNode
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -16,7 +15,8 @@ data class Layout(
     val right: Float? = null,
     val bottom: Float? = null,
     val left: Float? = null,
-    val padding: Float? = null,
+    val padding: DataSpacing? = null,
+    //val padding: Float? = null,
     @SerialName("flex_grow")
     val flexGrow: Float? = null,
     val count: Int? = null, // What's this???

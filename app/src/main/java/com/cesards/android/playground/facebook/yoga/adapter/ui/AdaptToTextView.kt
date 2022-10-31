@@ -8,12 +8,15 @@ import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.view.setPadding
+import com.cesards.android.playground.facebook.yoga.adapter.handlePadding
+import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToSpacing
 import com.cesards.android.playground.facebook.yoga.adapter.toPixels
 import com.cesards.android.playground.sdui.model.Data
 import com.cesards.android.playground.sdui.model.Layout
 
-class AdaptToTextView {
+internal class AdaptToTextView(
+    private val adaptToSpacing : AdaptToSpacing
+) {
 
     private var myId = 10000
 
@@ -24,7 +27,7 @@ class AdaptToTextView {
             background = background(context, data)
             text = data!!.text!!.body
             if (layout.padding != null) {
-                setPadding(layout.padding.toPixels(context).toInt())
+                handlePadding(adaptToSpacing(layout.padding))
             }
             if (data.text?.color != null) {
                 setTextColor(Color.parseColor(data.text.color.solid))
@@ -35,7 +38,10 @@ class AdaptToTextView {
             // Temporal Hack: This should come specified from the Payload.
             gravity = Gravity.CENTER_VERTICAL
 
-            layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
         }
     }
 

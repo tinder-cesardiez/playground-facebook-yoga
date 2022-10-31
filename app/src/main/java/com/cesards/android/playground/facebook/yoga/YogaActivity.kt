@@ -6,12 +6,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.cesards.android.playground.CONTROLLA_SAMPLE_STRUCT
 import com.cesards.android.playground.R
-import com.cesards.android.playground.facebook.yoga.adapter.AdaptToWidgetTree
+import com.cesards.android.playground.facebook.yoga.adapter.AdaptToViewTree
 import com.cesards.android.playground.facebook.yoga.adapter.SetToYogaNodeProperties
-import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaAlign
-import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaFlexDirection
-import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaJustifyContent
-import com.cesards.android.playground.facebook.yoga.adapter.layout.AdaptToYogaPositionType
+import com.cesards.android.playground.facebook.yoga.adapter.layout.*
 import com.cesards.android.playground.facebook.yoga.adapter.ui.AdaptToCarouselView
 import com.cesards.android.playground.facebook.yoga.adapter.ui.AdaptToContainerView
 import com.cesards.android.playground.facebook.yoga.adapter.ui.AdaptToImageView
@@ -22,7 +19,7 @@ import com.facebook.yoga.android.YogaViewLayoutFactory
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
-class YogaDynamicPayloadActivity : AppCompatActivity() {
+class YogaActivity : AppCompatActivity() {
 
     init {
         YogaConfigFactory.create().apply {
@@ -37,17 +34,19 @@ class YogaDynamicPayloadActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_yoga_dynamic_payload)
 
-        val adaptToWidgetTree = AdaptToWidgetTree(
+        val adaptToSpacing = AdaptToSpacing()
+        val adaptToViewTree = AdaptToViewTree(
             SetToYogaNodeProperties(
                 AdaptToYogaFlexDirection(),
                 AdaptToYogaPositionType(),
                 AdaptToYogaJustifyContent(),
-                AdaptToYogaAlign()
+                AdaptToYogaAlign(),
+                AdaptToSpacing()
             ),
-            AdaptToTextView(),
+            AdaptToTextView(adaptToSpacing),
             AdaptToContainerView(),
-            AdaptToCarouselView(),
-            AdaptToImageView(),
+            AdaptToCarouselView(adaptToSpacing),
+            AdaptToImageView(adaptToSpacing),
         )
 
         val response = Json {
@@ -55,7 +54,7 @@ class YogaDynamicPayloadActivity : AppCompatActivity() {
         }.decodeFromString<Template>(CONTROLLA_SAMPLE_STRUCT)
 
 
-        val render = requireNotNull(adaptToWidgetTree(response.value, this, null))
+        val render = requireNotNull(adaptToViewTree(response.value, this, null))
 
         findViewById<ViewGroup>(R.id.root).addView(render)
 //        setContentView(
